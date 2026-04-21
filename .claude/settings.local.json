@@ -11,10 +11,12 @@
       "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\UTN\\\\Desktop\\\\build-apk2.ps1\")",
       "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" devices *)",
       "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" install *)",
-      "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" shell *)"
+      "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" shell *)",
+      "Read(//c/Users/UTN/.claude/projects/c--Users-UTN-OneDrive---Universidad-T-cnica-Nacional-Escritorio-Extra-Clase-Moviles/memory/**)"
     ],
     "additionalDirectories": [
-      "c:\\Users\\UTN\\Desktop"
+      "c:\\Users\\UTN\\Desktop",
+      "c:\\Users\\UTN\\.claude\\projects\\c--Users-UTN-OneDrive---Universidad-T-cnica-Nacional-Escritorio-Extra-Clase-Moviles\\memory"
     ]
   }
 }

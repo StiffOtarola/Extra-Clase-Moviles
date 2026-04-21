@@ -1,0 +1,107 @@
+<!-- Backdrop blur overlay -->
+<div class="modal-backdrop" (click)="cerrar()"></div>
+
+<div class="modal-sheet">
+
+  <!-- Handle -->
+  <div class="sheet-handle"></div>
+
+  <!-- Header -->
+  <div class="modal-header">
+    <div class="modal-header-icon">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path *ngIf="!modoEdicion" d="M12 5v14M5 12h14"/>
+        <path *ngIf="modoEdicion" d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+        <path *ngIf="modoEdicion" d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+      </svg>
+    </div>
+    <div>
+      <h2 class="modal-title">{{ modoEdicion ? 'Editar local' : 'Nuevo local' }}</h2>
+      <p class="modal-subtitle">{{ modoEdicion ? 'Modificá los datos del registro' : 'Completá los campos obligatorios' }}</p>
+    </div>
+    <button class="close-btn" (click)="cerrar()" aria-label="Cerrar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Form -->
+  <div class="modal-body">
+
+    <!-- Descripción -->
+    <div class="field-group" [class.has-error]="errorDescripcion || errorDuplicado">
+      <label class="field-label">
+        Descripción
+        <span class="required-dot"></span>
+      </label>
+      <div class="input-wrap">
+        <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+        </svg>
+        <input
+          class="glass-input"
+          type="text"
+          [(ngModel)]="descripcion"
+          placeholder="Ej: Restaurante La Perla"
+          (input)="errorDescripcion=false; errorDuplicado=false"
+          autofocus
+        />
+      </div>
+      <span class="field-error" *ngIf="errorDescripcion">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        La descripción es obligatoria
+      </span>
+      <span class="field-error" *ngIf="errorDuplicado">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        Ya existe un local con esa descripción
+      </span>
+    </div>
+
+    <!-- Recomendación -->
+    <div class="field-group" [class.has-error]="errorRecomendacion">
+      <label class="field-label">
+        Recomendación
+        <span class="required-dot"></span>
+      </label>
+      <div class="input-wrap">
+        <svg class="input-icon textarea-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <textarea
+          class="glass-input glass-textarea"
+          [(ngModel)]="recomendacion"
+          placeholder="Ej: Excelente atención al cliente..."
+          rows="3"
+          (input)="errorRecomendacion=false"
+        ></textarea>
+      </div>
+      <span class="field-error" *ngIf="errorRecomendacion">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+        </svg>
+        La recomendación es obligatoria
+      </span>
+    </div>
+
+  </div>
+
+  <!-- Footer buttons -->
+  <div class="modal-footer">
+    <button class="btn btn-ghost" (click)="cerrar()">Cancelar</button>
+    <button class="btn btn-primary" (click)="guardar()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path *ngIf="!modoEdicion" d="M12 5v14M5 12h14"/>
+        <path *ngIf="modoEdicion" d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+        <polyline *ngIf="modoEdicion" points="17 21 17 13 7 13 7 21"/>
+        <polyline *ngIf="modoEdicion" points="7 3 7 8 15 8"/>
+      </svg>
+      {{ modoEdicion ? 'Guardar cambios' : 'Agregar local' }}
+    </button>
+  </div>
+
+</div>

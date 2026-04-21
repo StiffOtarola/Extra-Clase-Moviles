@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -NoProfile -Command \"Get-ChildItem 'C:\\\\Users\\\\UTN\\\\OneDrive - Universidad Técnica Nacional\\\\Escritorio\\\\Extra Clase Moviles' | Select-Object Name\")",
+      "Bash(ionic build *)",
+      "Bash(npx cap *)",
+      "Bash(powershell -NoProfile -Command \"Start-Process 'C:\\\\Users\\\\UTN\\\\AppData\\\\Local\\\\Android\\\\Sdk\\\\emulator\\\\emulator.exe' -ArgumentList '-avd','Pixel_9','-no-snapshot-load'\")",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\UTN\\\\Desktop\\\\build-apk.ps1\")",
+      "Read(//c/Users/UTN/Desktop/**)",
+      "Bash(break)",
+      "Bash(powershell -NoProfile -ExecutionPolicy Bypass -File \"C:\\\\Users\\\\UTN\\\\Desktop\\\\build-apk2.ps1\")",
+      "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" devices *)",
+      "Bash(\"C:/Users/UTN/AppData/Local/Android/Sdk/platform-tools/adb.exe\" install *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\UTN\\Desktop"
+    ]
+  }
+}

@@ -166,43 +166,5 @@ adb install -r android/app/build/outputs/apk/debug/app-debug.apk
 adb shell am start -n "io.ionic.starter/.MainActivity"
 ```
 
----
 
-## Funcionalidades
 
-- **Agregar** locales con descripción y recomendación (modal)
-- **Editar** registros existentes (modal pre-cargado)
-- **Eliminar** registros seleccionados
-- **Buscar** por descripción o recomendación en tiempo real
-- **Limpiar** selección y búsqueda
-- Validaciones: campos obligatorios y descripción única (llave primaria)
-- Botones Editar/Eliminar deshabilitados hasta seleccionar un registro
-
----
-
-## Estructura del proyecto
-
-```
-src/
-├── app/
-│   ├── home/
-│   │   ├── local-modal/        # Modal para agregar/editar
-│   │   │   ├── local-modal.component.ts
-│   │   │   ├── local-modal.component.html
-│   │   │   └── local-modal.component.scss
-│   │   ├── home.page.ts        # Lógica principal
-│   │   ├── home.page.html      # Plantilla
-│   │   ├── home.page.scss      # Estilos (glassmorphism dark)
-│   │   └── home.module.ts
-│   └── app.module.ts
-├── theme/
-│   └── variables.scss          # Design tokens
-└── global.scss
-```
-
----
-
-## Curso
-
-**ITI-621 Tecnologías y Sistemas Web III**  
-Universidad Técnica Nacional — Sede Guanacaste
